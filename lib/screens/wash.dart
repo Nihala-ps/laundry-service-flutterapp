@@ -124,7 +124,7 @@ class _WashState extends State<Wash> {
           children: [
             Container(
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -143,17 +143,17 @@ class _WashState extends State<Wash> {
               ),
             ),
             Padding(
-              padding:  EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               child: GestureDetector(
-                onTap:(){
+                onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => CartPage()),
                   );
-                },child: Container(
-    width: 252,
-    height:
-     49,
+                },
+                child: Container(
+                  width: 252,
+                  height: 49,
                   decoration: BoxDecoration(
                     color: Color(0xFF24C2B0),
                     borderRadius: BorderRadius.circular(20),

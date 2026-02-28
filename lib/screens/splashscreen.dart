@@ -10,7 +10,6 @@ class PaymentSuccessPage extends StatefulWidget {
 
 class _PaymentSuccessPageState extends State<PaymentSuccessPage>
     with SingleTickerProviderStateMixin {
-
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
 
@@ -18,20 +17,24 @@ class _PaymentSuccessPageState extends State<PaymentSuccessPage>
   void initState() {
     super.initState();
 
-    _controller =
-        AnimationController(vsync: this, duration: const Duration(milliseconds: 800));
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 800),
+    );
 
-    _scaleAnimation =
-        CurvedAnimation(parent: _controller, curve: Curves.elasticOut);
+    _scaleAnimation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.elasticOut,
+    );
 
     _controller.forward();
 
     // Auto navigate after 3 seconds
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(Duration(seconds: 3), () {
       Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => Home()),
-      );// or navigate to home page
+        context,
+        MaterialPageRoute(builder: (context) => Home()),
+      ); // or navigate to home page
     });
   }
 
@@ -44,33 +47,27 @@ class _PaymentSuccessPageState extends State<PaymentSuccessPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF24C2B0),
+      backgroundColor: Color(0xFF24C2B0),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-
-            /// Animated Check Icon
             ScaleTransition(
               scale: _scaleAnimation,
               child: Container(
                 height: 120,
                 width: 120,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: Colors.white,
                   shape: BoxShape.circle,
                 ),
-                child: const Icon(
-                  Icons.check,
-                  color: Color(0xFF24C2B0),
-                  size: 70,
-                ),
+                child: Icon(Icons.check, color: Color(0xFF24C2B0), size: 70),
               ),
             ),
 
-            const SizedBox(height: 30),
+            SizedBox(height: 30),
 
-            const Text(
+            Text(
               "Payment Successful!",
               style: TextStyle(
                 color: Colors.white,
@@ -79,15 +76,12 @@ class _PaymentSuccessPageState extends State<PaymentSuccessPage>
               ),
             ),
 
-            const SizedBox(height: 10),
+            SizedBox(height: 10),
 
-            const Text(
+            Text(
               "Your order has been placed successfully.",
               textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white70,
-                fontSize: 14,
-              ),
+              style: TextStyle(color: Colors.white70, fontSize: 14),
             ),
           ],
         ),
